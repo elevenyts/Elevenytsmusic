@@ -62,8 +62,8 @@ COOKIE_URL=youtube_cookies_url (optional)
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/hasindu-nagolla/HasiiMusicBot
-cd HasiiMusicBot
+git clone https://github.com/Msp0455/Elevenyts
+cd Elevenyts
 ```
 
 2. **Install dependencies**
