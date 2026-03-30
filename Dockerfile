@@ -1,14 +1,18 @@
 FROM python:3.12-slim
 
-# Install dependencies (ffmpeg + curl + unzip)
+# Install dependencies (ffmpeg + build tools + curl + unzip)
 RUN apt-get update && \
-    apt-get install -y ffmpeg curl unzip && \
+    apt-get install -y ffmpeg gcc python3-dev curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
 # App setup
 WORKDIR /app
 COPY . .
 
+# Upgrade pip (recommended)
+RUN pip install --upgrade pip
+
+# Install Python deps
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Deno
