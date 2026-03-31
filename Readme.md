@@ -31,7 +31,13 @@
 
 ---
 
-## 🚀 Deployment
+## Deploy to Hosting Platforms
+
+| Platform | Deploy Button |
+|----------|---------------|
+| Render | [![Deploy to Render](https://img.shields.io/badge/Deploy%20to-Render-46E3B7?style=for-the-badge&logo=render)](https://render.com/deploy) |
+| Railway | [![Deploy to Railway](https://img.shields.io/badge/Deploy%20to-Railway-0B0D0E?style=for-the-badge&logo=railway)](https://railway.app/new) |
+| Heroku | [![Deploy to Heroku](https://img.shields.io/badge/Deploy%20to-Heroku-430098?style=for-the-badge&logo=heroku)](https://heroku.com/deploy) |
 
 ### ✔️ Prerequisites
 
