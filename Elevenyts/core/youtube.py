@@ -1,5 +1,6 @@
 import os
 import re
+import glob
 import asyncio
 import aiohttp
 from dataclasses import replace
@@ -95,10 +96,10 @@ class YouTube:
             return link.split("&si")[0].split("?si")[0]
         return None
 
-    async def search(self, query: str, m_id: int) -> Track | None:
+    async def search(self, query: str, m_id: int, video: bool = False) -> Track | None:
         """Search for a video on YouTube."""
         # Check cache first (10-minute TTL)
-        cache_key = query
+        cache_key = f"{query}_{video}"
         current_time = asyncio.get_running_loop().time()
 
         if cache_key in self.search_cache:
@@ -110,7 +111,7 @@ class YouTube:
                 fresh.file_path = None
                 fresh.user = None
                 fresh.time = 0
-                fresh.video = False
+                fresh.video = video
                 return fresh
 
         try:
@@ -137,6 +138,7 @@ class YouTube:
                 url=data.get("link"),
                 view_count=data.get("viewCount", {}).get("short"),
                 is_live=is_live,
+                video=video,
             )
 
             # Cache the result
@@ -185,6 +187,8 @@ class YouTube:
                         url=link,
                         user=user,
                         view_count="",
+                        is_live=False,
+                        video=False,
                     )
                     tracks.append(track)
                 except Exception as e:
