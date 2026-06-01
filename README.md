@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://files.catbox.moe/nhg5ko.png" alt="˹ꜱʜʀɪ ᴍᴜꜱɪᴄ˼" width="400"/>
+  <img src="https://files.catbox.moe/u97exo.jpg" alt="˹Anny ᴍᴜꜱɪᴄ˼" width="400"/>
   
   # 🎵 ˹ꜱʜʀɪ ᴍᴜꜱɪᴄ˼
 
