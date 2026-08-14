@@ -1,17 +1,400 @@
-# ==========================================================
-  # Copyright (c) 2026 ArtistBots
-  # All Rights Reserved.
-  # 
-  # Project      : ArtistBots API Telegram Music Bot
-  # Powered By   : Artist
-  # Type         : API Based Telegram Music Bot
-  #
-  # Bot          : @ArtistApibot
-  # Channel      : https://t.me/artistbots
-  # GitHub       : https://github.com/elevenyts
-  #
-  # Unauthorized copying, modification, or redistribution
-  # of this source code without permission is prohibited.
-  # ==========================================================
-import base64
-exec(base64.b64decode("IyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CiMgQ29weXJpZ2h0IChjKSAyMDI2IEFydGlzdEJvdHMKIyBBbGwgUmlnaHRzIFJlc2VydmVkLgojCiMgUHJvamVjdCAgICAgIDogQXJ0aXN0Qm90cyBBUEkgVGVsZWdyYW0gTXVzaWMgQm90CiMgUG93ZXJlZCBCeSAgIDogQXJ0aXN0CiMgVHlwZSAgICAgICAgIDogQVBJIEJhc2VkIFRlbGVncmFtIE11c2ljIEJvdAojCiMgQm90ICAgICAgICAgIDogQEFydGlzdEFwaWJvdAojIENoYW5uZWwgICAgICA6IGh0dHBzOi8vdC5tZS9hcnRpc3Rib3RzCiMgR2l0SHViICAgICAgIDogaHR0cHM6Ly9naXRodWIuY29tL2VsZXZlbnl0cwojCiMgVW5hdXRob3JpemVkIGNvcHlpbmcsIG1vZGlmaWNhdGlvbiwgb3IgcmVkaXN0cmlidXRpb24KIyBvZiB0aGlzIHNvdXJjZSBjb2RlIHdpdGhvdXQgcGVybWlzc2lvbiBpcyBwcm9oaWJpdGVkLgojID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KaW1wb3J0IG9zCmltcG9ydCByZQppbXBvcnQgYXN5bmNpbwppbXBvcnQgYWlvaHR0cAppbXBvcnQgYmFzZTY0Cgpmcm9tIFBJTCBpbXBvcnQgKAogICAgSW1hZ2UsCiAgICBJbWFnZURyYXcsCiAgICBJbWFnZUVuaGFuY2UsCiAgICBJbWFnZUZpbHRlciwKICAgIEltYWdlRm9udAopCgpmcm9tIEVsZXZlbnl0cyBpbXBvcnQgY29uZmlnCmZyb20gRWxldmVueXRzLmhlbHBlcnMgaW1wb3J0IFRyYWNrCgoKUEFORUxfVywgUEFORUxfSCA9IDEwMzAsIDYxMApQQU5FTF9YID0gKDEyODAgLSBQQU5FTF9XKSAvLyAyClBBTkVMX1kgPSA1NQoKVEhVTUJfVywgVEhVTUJfSCA9IDkzMCwgNDIwClRIVU1CX1ggPSBQQU5FTF9YICsgKFBBTkVMX1cgLSBUSFVNQl9XKSAvLyAyClRIVU1CX1kgPSBQQU5FTF9ZICsgMzAKClRJVExFX1ggPSBUSFVNQl9YICsgNQpUSVRMRV9ZID0gVEhVTUJfWSArIFRIVU1CX0ggKyAyNQoKTUVUQV9ZID0gVElUTEVfWSArIDU4CgpCQVJfWCA9IFRIVU1CX1ggKyA1CkJBUl9ZID0gTUVUQV9ZICsgNjAKCkJBUl9SRURfTEVOID0gMzMwCkJBUl9UT1RBTF9MRU4gPSA5MjAKCklDT05TX1csIElDT05TX0ggPSA0MjAsIDQ1CklDT05TX1ggPSBQQU5FTF9YICsgKFBBTkVMX1cgLSBJQ09OU19XKSAvLyAyCklDT05TX1kgPSBCQVJfWSArIDY1CgpNQVhfVElUTEVfV0lEVEggPSA4MjAKCl9mID0gIlFYSjBhWE4wWW05MGN3PT0iCgoKZGVmIF9kZWNvZGVfZigpOgogICAgZGVjb2RlZCA9IGJhc2U2NC5iNjRkZWNvZGUoX2YpLmRlY29kZSgidXRmLTgiKQogICAgcmV0dXJuIGYi4pymIHtkZWNvZGVkfSDinKYiCgoKZGVmIHRyaW1fdG9fd2lkdGgodGV4dDogc3RyLCBmb250LCBtYXhfdzogaW50KSAtPiBzdHI6CiAgICBlbGxpcHNpcyA9ICLigKYiCiAgICBpZiBmb250LmdldGxlbmd0aCh0ZXh0KSA8PSBtYXhfdzoKICAgICAgICByZXR1cm4gdGV4dAogICAgZm9yIGkgaW4gcmFuZ2UobGVuKHRleHQpIC0gMSwgMCwgLTEpOgogICAgICAgIGlmIGZvbnQuZ2V0bGVuZ3RoKHRleHRbOmldICsgZWxsaXBzaXMpIDw9IG1heF93OgogICAgICAgICAgICByZXR1cm4gdGV4dFs6aV0gKyBlbGxpcHNpcwogICAgcmV0dXJuIGVsbGlwc2lzCgoKZGVmIGRyYXdfcm91bmRlZF9yZWN0X2JvcmRlcl9nbG93KGRyYXcsIGJveCwgcmFkaXVzLCBjb2xvciwgd2lkdGgsIGdsb3dfY29sb3IsIGdsb3dfc3ByZWFkKToKICAgICIiIkRyYXcgYSBnbG93aW5nIHJvdW5kZWQgcmVjdGFuZ2xlIGJvcmRlci4iIiIKICAgIHgwLCB5MCwgeDEsIHkxID0gYm94CiAgICBmb3IgaSBpbiByYW5nZShnbG93X3NwcmVhZCwgMCwgLTEpOgogICAgICAgIGFscGhhID0gaW50KDgwICogKGkgLyBnbG93X3NwcmVhZCkpCiAgICAgICAgZ2MgPSAoKmdsb3dfY29sb3JbOjNdLCBhbHBoYSkKICAgICAgICBkcmF3LnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAoeDAgLSBpLCB5MCAtIGksIHgxICsgaSwgeTEgKyBpKSwKICAgICAgICAgICAgcmFkaXVzPXJhZGl1cyArIGksCiAgICAgICAgICAgIG91dGxpbmU9Z2MsCiAgICAgICAgICAgIHdpZHRoPTEKICAgICAgICApCiAgICBkcmF3LnJvdW5kZWRfcmVjdGFuZ2xlKGJveCwgcmFkaXVzPXJhZGl1cywgb3V0bGluZT1jb2xvciwgd2lkdGg9d2lkdGgpCgoKY2xhc3MgVGh1bWJuYWlsOgoKICAgIGRlZiBfX2luaXRfXyhzZWxmKToKICAgICAgICB0cnk6CiAgICAgICAgICAgIHNlbGYudGl0bGVfZm9udCA9IEltYWdlRm9udC50cnVldHlwZSgKICAgICAgICAgICAgICAgICJFbGV2ZW55dHMvaGVscGVycy9SYWxld2F5LUJvbGQudHRmIiwgNDIpCiAgICAgICAgICAgIHNlbGYucmVndWxhcl9mb250ID0gSW1hZ2VGb250LnRydWV0eXBlKAogICAgICAgICAgICAgICAgIkVsZXZlbnl0cy9oZWxwZXJzL0ludGVyLUxpZ2h0LnR0ZiIsIDI0KQogICAgICAgICAgICBzZWxmLnNpZ25hdHVyZV9mb250ID0gSW1hZ2VGb250LnRydWV0eXBlKAogICAgICAgICAgICAgICAgIkVsZXZlbnl0cy9oZWxwZXJzL1JhbGV3YXktQm9sZC50dGYiLCAyNikKICAgICAgICAgICAgc2VsZi5zbWFsbF9mb250ID0gSW1hZ2VGb250LnRydWV0eXBlKAogICAgICAgICAgICAgICAgIkVsZXZlbnl0cy9oZWxwZXJzL0ludGVyLUxpZ2h0LnR0ZiIsIDIwKQogICAgICAgIGV4Y2VwdCBPU0Vycm9yOgogICAgICAgICAgICBzZWxmLnRpdGxlX2ZvbnQgPSBJbWFnZUZvbnQubG9hZF9kZWZhdWx0KCkKICAgICAgICAgICAgc2VsZi5yZWd1bGFyX2ZvbnQgPSBJbWFnZUZvbnQubG9hZF9kZWZhdWx0KCkKICAgICAgICAgICAgc2VsZi5zaWduYXR1cmVfZm9udCA9IEltYWdlRm9udC5sb2FkX2RlZmF1bHQoKQogICAgICAgICAgICBzZWxmLnNtYWxsX2ZvbnQgPSBJbWFnZUZvbnQubG9hZF9kZWZhdWx0KCkKCiAgICBhc3luYyBkZWYgc2F2ZV90aHVtYihzZWxmLCBvdXRwdXRfcGF0aDogc3RyLCB1cmw6IHN0cik6CiAgICAgICAgYXN5bmMgd2l0aCBhaW9odHRwLkNsaWVudFNlc3Npb24oKSBhcyBzZXNzaW9uOgogICAgICAgICAgICBhc3luYyB3aXRoIHNlc3Npb24uZ2V0KHVybCkgYXMgcmVzcDoKICAgICAgICAgICAgICAgIHdpdGggb3BlbihvdXRwdXRfcGF0aCwgIndiIikgYXMgZjoKICAgICAgICAgICAgICAgICAgICBmLndyaXRlKGF3YWl0IHJlc3AucmVhZCgpKQogICAgICAgIHJldHVybiBvdXRwdXRfcGF0aAoKICAgIGFzeW5jIGRlZiBnZW5lcmF0ZShzZWxmLCBzb25nOiBUcmFjaywgc2l6ZT0oMTI4MCwgNzIwKSkgLT4gc3RyOgogICAgICAgIHRyeToKICAgICAgICAgICAgdGVtcCA9IGYiY2FjaGUvdGVtcF97c29uZy5pZH0uanBnIgogICAgICAgICAgICBvdXRwdXQgPSBmImNhY2hlL3tzb25nLmlkfV91bHRyYS5wbmciCiAgICAgICAgICAgIGlmIG9zLnBhdGguZXhpc3RzKG91dHB1dCk6CiAgICAgICAgICAgICAgICByZXR1cm4gb3V0cHV0CiAgICAgICAgICAgIGF3YWl0IHNlbGYuc2F2ZV90aHVtYih0ZW1wLCBzb25nLnRodW1ibmFpbCkKICAgICAgICAgICAgcmV0dXJuIGF3YWl0IGFzeW5jaW8uZ2V0X2V2ZW50X2xvb3AoKS5ydW5faW5fZXhlY3V0b3IoCiAgICAgICAgICAgICAgICBOb25lLCBzZWxmLl9nZW5lcmF0ZV9zeW5jLCB0ZW1wLCBvdXRwdXQsIHNvbmcsIHNpemUpCiAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICAgICAgcmV0dXJuIGNvbmZpZy5ERUZBVUxUX1RIVU1CCgogICAgZGVmIF9nZW5lcmF0ZV9zeW5jKHNlbGYsIHRlbXAsIG91dHB1dCwgc29uZywgc2l6ZT0oMTI4MCwgNzIwKSk6CiAgICAgICAgdHJ5OgogICAgICAgICAgICBXLCBIID0gc2l6ZSAgIyAxMjgwLCA3MjAKCiAgICAgICAgICAgICMg4pSA4pSAIDEuIEJhY2tncm91bmQg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACiAgICAgICAgICAgIHdpdGggSW1hZ2Uub3Blbih0ZW1wKSBhcyB0bXA6CiAgICAgICAgICAgICAgICBiYXNlID0gdG1wLnJlc2l6ZShzaXplKS5jb252ZXJ0KCJSR0JBIikKCiAgICAgICAgICAgIGJnID0gYmFzZS5maWx0ZXIoSW1hZ2VGaWx0ZXIuR2F1c3NpYW5CbHVyKDMyKSkKICAgICAgICAgICAgYmcgPSBJbWFnZUVuaGFuY2UuQnJpZ2h0bmVzcyhiZykuZW5oYW5jZSgwLjIyKQogICAgICAgICAgICBiZyA9IEltYWdlRW5oYW5jZS5Db250cmFzdChiZykuZW5oYW5jZSgxLjUpCgogICAgICAgICAgICAjIFJhZGlhbCB2aWduZXR0ZSBvdmVybGF5IChkYXJrIGVkZ2VzKQogICAgICAgICAgICB2aWduZXR0ZSA9IEltYWdlLm5ldygiUkdCQSIsIHNpemUsICgwLCAwLCAwLCAwKSkKICAgICAgICAgICAgdmQgPSBJbWFnZURyYXcuRHJhdyh2aWduZXR0ZSkKICAgICAgICAgICAgZm9yIGkgaW4gcmFuZ2UoNjAsIDAsIC0xKToKICAgICAgICAgICAgICAgIGFscGhhID0gaW50KDE2MCAqICgxIC0gaSAvIDYwKSkKICAgICAgICAgICAgICAgIHNwcmVhZCA9IGkgKiA2CiAgICAgICAgICAgICAgICB2ZC5lbGxpcHNlKAogICAgICAgICAgICAgICAgICAgIChXIC8vIDIgLSBzcHJlYWQsIEggLy8gMiAtIHNwcmVhZCAqIDkgLy8gMTYsCiAgICAgICAgICAgICAgICAgICAgIFcgLy8gMiArIHNwcmVhZCwgSCAvLyAyICsgc3ByZWFkICogOSAvLyAxNiksCiAgICAgICAgICAgICAgICAgICAgZmlsbD0oMCwgMCwgMCwgYWxwaGEpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgIGJnID0gSW1hZ2UuYWxwaGFfY29tcG9zaXRlKGJnLCB2aWduZXR0ZSkKCiAgICAgICAgICAgICMgU3VidGxlIGRhcmsgb3ZlcmxheQogICAgICAgICAgICBkYXJrID0gSW1hZ2UubmV3KCJSR0JBIiwgc2l6ZSwgKDAsIDAsIDAsIDEwMCkpCiAgICAgICAgICAgIGJnID0gSW1hZ2UuYWxwaGFfY29tcG9zaXRlKGJnLCBkYXJrKQoKICAgICAgICAgICAgZHJhdyA9IEltYWdlRHJhdy5EcmF3KGJnKQoKICAgICAgICAgICAgIyDilIDilIAgMi4gR2xhc3MgcGFuZWwgd2l0aCBnbG93IGJvcmRlciDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKICAgICAgICAgICAgcGFuZWwgPSBJbWFnZS5uZXcoIlJHQkEiLCAoUEFORUxfVywgUEFORUxfSCksICgwLCAwLCAwLCAwKSkKICAgICAgICAgICAgcGQgPSBJbWFnZURyYXcuRHJhdyhwYW5lbCkKCiAgICAgICAgICAgICMgT3V0ZXIgZ2xvdyByaW5ncwogICAgICAgICAgICBDWUFOID0gKDAsIDI1NSwgMjU1KQogICAgICAgICAgICBmb3IgZ2kgaW4gcmFuZ2UoOCwgMCwgLTEpOgogICAgICAgICAgICAgICAgZ2EgPSBpbnQoMzUgKiAoZ2kgLyA4KSkKICAgICAgICAgICAgICAgIHBkLnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAgICAgICAgICgwIC0gZ2ksIDAgLSBnaSwgUEFORUxfVyAtIDEgKyBnaSwgUEFORUxfSCAtIDEgKyBnaSksCiAgICAgICAgICAgICAgICAgICAgcmFkaXVzPTQyICsgZ2ksCiAgICAgICAgICAgICAgICAgICAgb3V0bGluZT0oMCwgMjIwLCAyNTUsIGdhKSwKICAgICAgICAgICAgICAgICAgICB3aWR0aD0xCiAgICAgICAgICAgICAgICApCgogICAgICAgICAgICAjIEdsYXNzIGZpbGwKICAgICAgICAgICAgcGQucm91bmRlZF9yZWN0YW5nbGUoCiAgICAgICAgICAgICAgICAoMCwgMCwgUEFORUxfVyAtIDEsIFBBTkVMX0ggLSAxKSwKICAgICAgICAgICAgICAgIHJhZGl1cz00MiwKICAgICAgICAgICAgICAgIGZpbGw9KDgsIDgsIDE4LCAxNjUpCiAgICAgICAgICAgICkKICAgICAgICAgICAgIyBJbm5lciBib3JkZXIKICAgICAgICAgICAgcGQucm91bmRlZF9yZWN0YW5nbGUoCiAgICAgICAgICAgICAgICAoMCwgMCwgUEFORUxfVyAtIDEsIFBBTkVMX0ggLSAxKSwKICAgICAgICAgICAgICAgIHJhZGl1cz00MiwKICAgICAgICAgICAgICAgIG91dGxpbmU9KDAsIDI1NSwgMjU1LCAyMzApLAogICAgICAgICAgICAgICAgd2lkdGg9MgogICAgICAgICAgICApCiAgICAgICAgICAgICMgU3VidGxlIGlubmVyIGhpZ2hsaWdodCAodG9wIGVkZ2UpCiAgICAgICAgICAgIHBkLnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAgICAgKDMsIDMsIFBBTkVMX1cgLSA0LCBQQU5FTF9IIC8vIDMpLAogICAgICAgICAgICAgICAgcmFkaXVzPTQwLAogICAgICAgICAgICAgICAgb3V0bGluZT0oMjU1LCAyNTUsIDI1NSwgMTgpLAogICAgICAgICAgICAgICAgd2lkdGg9MQogICAgICAgICAgICApCgogICAgICAgICAgICBwbWFzayA9IEltYWdlLm5ldygiTCIsIChQQU5FTF9XLCBQQU5FTF9IKSwgMCkKICAgICAgICAgICAgSW1hZ2VEcmF3LkRyYXcocG1hc2spLnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAgICAgKDAsIDAsIFBBTkVMX1csIFBBTkVMX0gpLCByYWRpdXM9NDIsIGZpbGw9MjU1KQogICAgICAgICAgICBiZy5wYXN0ZShwYW5lbCwgKFBBTkVMX1gsIFBBTkVMX1kpLCBwbWFzaykKCiAgICAgICAgICAgICMg4pSA4pSAIDMuIFRodW1ibmFpbCBpbWFnZSB3aXRoIGJvcmRlciBnbG93IOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgAogICAgICAgICAgICB0aHVtYiA9IGJhc2UucmVzaXplKChUSFVNQl9XLCBUSFVNQl9IKSkKCiAgICAgICAgICAgICMgR2xvdyBmcmFtZSBiZWhpbmQgdGh1bWJuYWlsCiAgICAgICAgICAgIGdsb3dfbGF5ZXIgPSBJbWFnZS5uZXcoIlJHQkEiLCBzaXplLCAoMCwgMCwgMCwgMCkpCiAgICAgICAgICAgIGdkID0gSW1hZ2VEcmF3LkRyYXcoZ2xvd19sYXllcikKICAgICAgICAgICAgZm9yIGdpIGluIHJhbmdlKDEwLCAwLCAtMSk6CiAgICAgICAgICAgICAgICBnYSA9IGludCg1MCAqIChnaSAvIDEwKSkKICAgICAgICAgICAgICAgIGdkLnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAgICAgICAgIChUSFVNQl9YIC0gZ2ksIFRIVU1CX1kgLSBnaSwKICAgICAgICAgICAgICAgICAgICAgVEhVTUJfWCArIFRIVU1CX1cgKyBnaSwgVEhVTUJfWSArIFRIVU1CX0ggKyBnaSksCiAgICAgICAgICAgICAgICAgICAgcmFkaXVzPTI4ICsgZ2ksCiAgICAgICAgICAgICAgICAgICAgZmlsbD0oMCwgMjAwLCAyNTUsIGdhKQogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBiZyA9IEltYWdlLmFscGhhX2NvbXBvc2l0ZShiZywgZ2xvd19sYXllcikKICAgICAgICAgICAgZHJhdyA9IEltYWdlRHJhdy5EcmF3KGJnKQoKICAgICAgICAgICAgdG1hc2sgPSBJbWFnZS5uZXcoIkwiLCB0aHVtYi5zaXplLCAwKQogICAgICAgICAgICBJbWFnZURyYXcuRHJhdyh0bWFzaykucm91bmRlZF9yZWN0YW5nbGUoCiAgICAgICAgICAgICAgICAoMCwgMCwgVEhVTUJfVywgVEhVTUJfSCksIHJhZGl1cz0yNiwgZmlsbD0yNTUpCiAgICAgICAgICAgIGJnLnBhc3RlKHRodW1iLCAoVEhVTUJfWCwgVEhVTUJfWSksIHRtYXNrKQoKICAgICAgICAgICAgIyBUaGluIGN5YW4gYm9yZGVyIGFyb3VuZCB0aHVtYm5haWwKICAgICAgICAgICAgZHJhdy5yb3VuZGVkX3JlY3RhbmdsZSgKICAgICAgICAgICAgICAgIChUSFVNQl9YLCBUSFVNQl9ZLCBUSFVNQl9YICsgVEhVTUJfVywgVEhVTUJfWSArIFRIVU1CX0gpLAogICAgICAgICAgICAgICAgcmFkaXVzPTI2LCBvdXRsaW5lPSgwLCAyNTUsIDI1NSwgMTYwKSwgd2lkdGg9MgogICAgICAgICAgICApCgogICAgICAgICAgICAjIOKUgOKUgCA0LiBDeWFuIGFjY2VudCBiYXIgKyBUaXRsZSDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKICAgICAgICAgICAgIyBWZXJ0aWNhbCBhY2NlbnQgYmFyCiAgICAgICAgICAgIGRyYXcucm91bmRlZF9yZWN0YW5nbGUoCiAgICAgICAgICAgICAgICAoVElUTEVfWCwgVElUTEVfWSArIDIsIFRJVExFX1ggKyA1LCBUSVRMRV9ZICsgNDYpLAogICAgICAgICAgICAgICAgcmFkaXVzPTMsIGZpbGw9KDAsIDI1NSwgMjU1KQogICAgICAgICAgICApCgogICAgICAgICAgICBjbGVhbl90aXRsZSA9IHJlLnN1YihyIlxXKyIsICIgIiwgc29uZy50aXRsZSkudGl0bGUoKSArICIgfCBBcnRpc3Rib3RzIgogICAgICAgICAgICBmaW5hbF90aXRsZSA9IHRyaW1fdG9fd2lkdGgoY2xlYW5fdGl0bGUsIHNlbGYudGl0bGVfZm9udCwgTUFYX1RJVExFX1dJRFRIKQoKICAgICAgICAgICAgIyBEcm9wIHNoYWRvdwogICAgICAgICAgICBkcmF3LnRleHQoKFRJVExFX1ggKyAxMywgVElUTEVfWSArIDMpLCBmaW5hbF90aXRsZSwKICAgICAgICAgICAgICAgICAgICAgIGZpbGw9KDAsIDAsIDAsIDE2MCksIGZvbnQ9c2VsZi50aXRsZV9mb250KQogICAgICAgICAgICAjIE1haW4gdGl0bGUKICAgICAgICAgICAgZHJhdy50ZXh0KChUSVRMRV9YICsgMTIsIFRJVExFX1kgKyAxKSwgZmluYWxfdGl0bGUsCiAgICAgICAgICAgICAgICAgICAgICBmaWxsPSgyNTUsIDI1NSwgMjU1KSwgZm9udD1zZWxmLnRpdGxlX2ZvbnQpCgogICAgICAgICAgICAjIOKUgOKUgCA1LiBNZXRhIGluZm8g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACiAgICAgICAgICAgIG1ldGFfdGV4dCA9IGYi4pa3ICBOb3cgUGxheWluZyAgIMK3ICAgWW91VHViZSAgIMK3ICAge3Nvbmcudmlld19jb3VudCBvciAnVW5rbm93biBWaWV3cyd9IgogICAgICAgICAgICBkcmF3LnRleHQoKFRJVExFX1ggKyAxMiwgTUVUQV9ZKSwgbWV0YV90ZXh0LAogICAgICAgICAgICAgICAgICAgICAgZmlsbD0oMTQwLCAyMDAsIDIyMCksIGZvbnQ9c2VsZi5yZWd1bGFyX2ZvbnQpCgogICAgICAgICAgICAjIOKUgOKUgCA2LiBQcm9ncmVzcyBiYXIg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACiAgICAgICAgICAgICMgVHJhY2sgQkcKICAgICAgICAgICAgZHJhdy5yb3VuZGVkX3JlY3RhbmdsZSgKICAgICAgICAgICAgICAgIChCQVJfWCwgQkFSX1kgLSA1LCBCQVJfWCArIEJBUl9UT1RBTF9MRU4sIEJBUl9ZICsgNSksCiAgICAgICAgICAgICAgICByYWRpdXM9MTIsIGZpbGw9KDQ1LCA0NSwgNTUpCiAgICAgICAgICAgICkKICAgICAgICAgICAgIyBQbGF5ZWQgcG9ydGlvbgogICAgICAgICAgICBkcmF3LnJvdW5kZWRfcmVjdGFuZ2xlKAogICAgICAgICAgICAgICAgKEJBUl9YLCBCQVJfWSAtIDUsIEJBUl9YICsgQkFSX1JFRF9MRU4sIEJBUl9ZICsgNSksCiAgICAgICAgICAgICAgICByYWRpdXM9MTIsIGZpbGw9KDAsIDIyMCwgMjU1KQogICAgICAgICAgICApCiAgICAgICAgICAgICMgS25vYiBnbG93CiAgICAgICAgICAgIGt4ID0gQkFSX1ggKyBCQVJfUkVEX0xFTgogICAgICAgICAgICBmb3IgZ2kgaW4gcmFuZ2UoOCwgMCwgLTEpOgogICAgICAgICAgICAgICAgZ2EgPSBpbnQoNjAgKiAoZ2kgLyA4KSkKICAgICAgICAgICAgICAgIGRyYXcuZWxsaXBzZSgKICAgICAgICAgICAgICAgICAgICAoa3ggLSAxMCAtIGdpLCBCQVJfWSAtIDEwIC0gZ2ksCiAgICAgICAgICAgICAgICAgICAgIGt4ICsgMTAgKyBnaSwgQkFSX1kgKyAxMCArIGdpKSwKICAgICAgICAgICAgICAgICAgICBmaWxsPSgwLCAyMDAsIDI1NSwgZ2EpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICMgS25vYgogICAgICAgICAgICBkcmF3LmVsbGlwc2UoCiAgICAgICAgICAgICAgICAoa3ggLSAxMCwgQkFSX1kgLSAxMCwga3ggKyAxMCwgQkFSX1kgKyAxMCksCiAgICAgICAgICAgICAgICBmaWxsPSgwLCAyNTUsIDI1NSkKICAgICAgICAgICAgKQogICAgICAgICAgICBkcmF3LmVsbGlwc2UoCiAgICAgICAgICAgICAgICAoa3ggLSA1LCBCQVJfWSAtIDUsIGt4ICsgNSwgQkFSX1kgKyA1KSwKICAgICAgICAgICAgICAgIGZpbGw9KDI1NSwgMjU1LCAyNTUpCiAgICAgICAgICAgICkKCiAgICAgICAgICAgICMgVGltZSBzdGFtcHMKICAgICAgICAgICAgZHJhdy50ZXh0KChCQVJfWCwgQkFSX1kgKyAxOCksICIwMDowMCIsCiAgICAgICAgICAgICAgICAgICAgICBmaWxsPSgxODAsIDE4MCwgMTgwKSwgZm9udD1zZWxmLnNtYWxsX2ZvbnQpCiAgICAgICAgICAgIGlzX2xpdmUgPSBnZXRhdHRyKHNvbmcsICJpc19saXZlIiwgRmFsc2UpCiAgICAgICAgICAgIGVuZF90ZXh0ID0gIvCflLQgTElWRSIgaWYgaXNfbGl2ZSBlbHNlIHNvbmcuZHVyYXRpb24KICAgICAgICAgICAgdHcgPSBzZWxmLnNtYWxsX2ZvbnQuZ2V0bGVuZ3RoKGVuZF90ZXh0KQogICAgICAgICAgICBkcmF3LnRleHQoKEJBUl9YICsgQkFSX1RPVEFMX0xFTiAtIHR3LCBCQVJfWSArIDE4KSwKICAgICAgICAgICAgICAgICAgICAgIGVuZF90ZXh0LAogICAgICAgICAgICAgICAgICAgICAgZmlsbD0oMCwgMjU1LCAyNTUpIGlmIGlzX2xpdmUgZWxzZSAoMTgwLCAxODAsIDE4MCksCiAgICAgICAgICAgICAgICAgICAgICBmb250PXNlbGYuc21hbGxfZm9udCkKCiAgICAgICAgICAgICMg4pSA4pSAIDcuIFBsYXkgaWNvbnMg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACiAgICAgICAgICAgIGljb25zX3BhdGggPSAiRWxldmVueXRzL2hlbHBlcnMvcGxheV9pY29ucy5wbmciCiAgICAgICAgICAgIGlmIG9zLnBhdGguaXNmaWxlKGljb25zX3BhdGgpOgogICAgICAgICAgICAgICAgd2l0aCBJbWFnZS5vcGVuKGljb25zX3BhdGgpIGFzIGljb25zX2ltZzoKICAgICAgICAgICAgICAgICAgICBpYyA9IGljb25zX2ltZy5yZXNpemUoKElDT05TX1csIElDT05TX0gpKS5jb252ZXJ0KCJSR0JBIikKICAgICAgICAgICAgICAgICAgICByLCBnLCBiLCBhID0gaWMuc3BsaXQoKQogICAgICAgICAgICAgICAgICAgIGN5YW5faWMgPSBJbWFnZS5tZXJnZSgiUkdCQSIsICgKICAgICAgICAgICAgICAgICAgICAgICAgci5wb2ludChsYW1iZGEgXzogMCksCiAgICAgICAgICAgICAgICAgICAgICAgIGcucG9pbnQobGFtYmRhIF86IDIyMCksCiAgICAgICAgICAgICAgICAgICAgICAgIGIucG9pbnQobGFtYmRhIF86IDI1NSksCiAgICAgICAgICAgICAgICAgICAgICAgIGEKICAgICAgICAgICAgICAgICAgICApKQogICAgICAgICAgICAgICAgICAgIGJnLnBhc3RlKGN5YW5faWMsIChJQ09OU19YLCBJQ09OU19ZKSwgY3lhbl9pYykKCiAgICAgICAgICAgIGJnLnNhdmUob3V0cHV0KQogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBvcy5yZW1vdmUodGVtcCkKICAgICAgICAgICAgZXhjZXB0IE9TRXJyb3I6CiAgICAgICAgICAgICAgICBwYXNzCiAgICAgICAgICAgIHJldHVybiBvdXRwdXQKCiAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbjoKICAgICAgICAgICAgcmV0dXJuIGNvbmZpZy5ERUZBVUxUX1RIVU1CCg==").decode("utf-8"))
+# Copyright (c) 2025 AnonymousX1025
+# Modified for EXACT YouTube Music Style Thumbnails
+# Like real YouTube Music video thumbnails
+
+import os
+import asyncio
+import aiohttp
+from PIL import (
+    Image, ImageDraw, ImageEnhance,
+    ImageFilter, ImageFont, ImageOps
+)
+
+
+# =========================
+# CONFIGURATION
+# =========================
+
+W, H = 1280, 720
+CACHE_DIR = "cache"
+os.makedirs(CACHE_DIR, exist_ok=True)
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+GRAY = (150, 150, 150)
+LIGHT_GRAY = (200, 200, 200)
+DARK_GRAY = (50, 50, 50)
+YELLOW = (255, 200, 0)
+
+
+# =========================
+# HELPER FUNCTIONS
+# =========================
+
+def safe_text(text, fallback="Unknown"):
+    return text if text else fallback
+
+def fit_text(font, text, max_width):
+    """Truncate text with ellipsis if too long"""
+    try:
+        if font.getlength(text) <= max_width:
+            return text
+        for i in range(len(text), 0, -1):
+            if font.getlength(text[:i] + "…") <= max_width:
+                return text[:i] + "…"
+        return "…"
+    except:
+        return text[:50] + "…" if len(text) > 50 else text
+
+def format_views(views):
+    """Format view count to K/M format"""
+    try:
+        views = int(views)
+        if views >= 1_000_000:
+            return f"{views//1_000_000}M"
+        elif views >= 1_000:
+            return f"{views//1_000}K"
+        return str(views)
+    except:
+        return "0"
+
+def create_gradient(width, height, color1, color2):
+    """Create a vertical gradient"""
+    gradient = Image.new('RGBA', (width, height), color1)
+    draw = ImageDraw.Draw(gradient)
+    for y in range(height):
+        ratio = y / height
+        r = int(color1[0] * (1 - ratio) + color2[0] * ratio)
+        g = int(color1[1] * (1 - ratio) + color2[1] * ratio)
+        b = int(color1[2] * (1 - ratio) + color2[2] * ratio)
+        a = int(color1[3] * (1 - ratio) + color2[3] * ratio)
+        draw.line([(0, y), (width, y)], fill=(r, g, b, a))
+    return gradient
+
+
+# =========================
+# TRACK CLASS
+# =========================
+
+class Track:
+    def __init__(self, id, title, thumbnail, channel_name, view_count, duration):
+        self.id = id
+        self.title = title
+        self.thumbnail = thumbnail
+        self.channel_name = channel_name
+        self.view_count = view_count
+        self.duration = duration
+
+
+# =========================
+# MAIN THUMBNAIL CLASS
+# =========================
+
+class Thumbnail:
+    """
+    EXACT YouTube Music Style Thumbnail Generator
+    Like real YouTube Music video thumbnails
+    """
+
+    def __init__(self):
+        self.session = None
+        
+        # Load fonts
+        try:
+            self.font_title = ImageFont.truetype(
+                "Elevenyts/helpers/Raleway-Bold.ttf", 65
+            )
+            self.font_artist = ImageFont.truetype(
+                "Elevenyts/helpers/Inter-Light.ttf", 32
+            )
+            self.font_views = ImageFont.truetype(
+                "Elevenyts/helpers/Inter-Light.ttf", 26
+            )
+            self.font_sub = ImageFont.truetype(
+                "Elevenyts/helpers/Inter-Light.ttf", 22
+            )
+        except:
+            print("⚠️ Custom fonts not found, using default")
+            self.font_title = ImageFont.load_default()
+            self.font_artist = ImageFont.load_default()
+            self.font_views = ImageFont.load_default()
+            self.font_sub = ImageFont.load_default()
+
+    async def start(self):
+        self.session = aiohttp.ClientSession()
+
+    async def close(self):
+        if self.session:
+            await self.session.close()
+
+    async def save_thumb(self, output_path, url):
+        if not self.session:
+            await self.start()
+        async with self.session.get(url) as resp:
+            with open(output_path, "wb") as f:
+                f.write(await resp.read())
+        return output_path
+
+    # ========================================
+    # YOUTUBE MUSIC STYLE GENERATE
+    # ========================================
+
+    async def generate(self, song) -> str:
+        """Generate YouTube Music-style thumbnail"""
+        try:
+            output = f"{CACHE_DIR}/{song.id}_youtube_music.png"
+            if os.path.exists(output):
+                return output
+
+            temp = f"{CACHE_DIR}/temp_{song.id}.jpg"
+            
+            url = getattr(song, "thumbnail", None)
+            if not url:
+                url = f"https://img.youtube.com/vi/{song.id}/maxresdefault.jpg"
+
+            await self.save_thumb(temp, url)
+
+            return await asyncio.get_event_loop().run_in_executor(
+                None, self._render_youtube_music, temp, output, song
+            )
+
+        except Exception as e:
+            print(f"❌ Thumbnail error: {e}")
+            return None
+
+    # ========================================
+    # YOUTUBE MUSIC RENDER ENGINE
+    # ========================================
+
+    def _render_youtube_music(self, temp, output, song):
+        """Render exact YouTube Music-style thumbnail"""
+        try:
+            # Load main image
+            img = Image.open(temp).convert("RGBA").resize((W, H))
+
+            # ====== STEP 1: BLUR BACKGROUND ======
+            bg_blur = img.copy().filter(ImageFilter.GaussianBlur(35))
+            bg_blur = ImageEnhance.Brightness(bg_blur).enhance(0.30)
+            bg_blur = ImageEnhance.Contrast(bg_blur).enhance(1.3)
+
+            # ====== STEP 2: DARK OVERLAY ======
+            dark = Image.new("RGBA", (W, H), (0, 0, 0, 180))
+            bg = Image.alpha_composite(bg_blur, dark)
+
+            # ====== STEP 3: MAIN IMAGE (CENTER - LARGE) ======
+            main_img = img.copy()
+            
+            # Calculate size - keep aspect ratio, fill most of the frame
+            target_width = 900
+            target_height = int(main_img.height * (target_width / main_img.width))
+            
+            # If height is too much, adjust
+            if target_height > 650:
+                target_height = 650
+                target_width = int(main_img.width * (target_height / main_img.height))
+            
+            main_img = main_img.resize((target_width, target_height), Image.Resampling.LANCZOS)
+            
+            # Center position
+            x_pos = (W - target_width) // 2
+            y_pos = (H - target_height) // 2 - 30  # Slightly up for text
+
+            # PASTE WITH NO ROUNDED CORNERS - NO BORDER
+            bg.paste(main_img, (x_pos, y_pos), main_img)
+
+            # ====== STEP 4: BOTTOM GRADIENT FOR TEXT ======
+            gradient = create_gradient(
+                W, 280,
+                (0, 0, 0, 0),
+                (0, 0, 0, 220)
+            )
+            bg.paste(gradient, (0, H - 280), gradient)
+
+            draw = ImageDraw.Draw(bg)
+
+            # ====== STEP 5: SONG TITLE (Bold, Large) ======
+            title = safe_text(getattr(song, "title", "Unknown Track"))
+            title = fit_text(self.font_title, title, 1100)
+
+            title_x = 60
+            title_y = H - 160
+
+            # Outline for readability
+            for dx, dy in [(-3, -3), (-3, 3), (3, -3), (3, 3)]:
+                draw.text(
+                    (title_x + dx, title_y + dy),
+                    title,
+                    font=self.font_title,
+                    fill=(0, 0, 0)
+                )
+            
+            # Main white text
+            draw.text(
+                (title_x, title_y),
+                title,
+                font=self.font_title,
+                fill=WHITE
+            )
+
+            # ====== STEP 6: ARTIST NAME ======
+            artist = safe_text(getattr(song, "channel_name", "Unknown Artist"))
+            artist = fit_text(self.font_artist, artist, 800)
+            
+            artist_x = title_x
+            artist_y = title_y + 75
+
+            # Outline
+            for dx, dy in [(-2, -2), (-2, 2), (2, -2), (2, 2)]:
+                draw.text(
+                    (artist_x + dx, artist_y + dy),
+                    artist,
+                    font=self.font_artist,
+                    fill=(0, 0, 0)
+                )
+            
+            # Artist name in gray
+            draw.text(
+                (artist_x, artist_y),
+                artist,
+                font=self.font_artist,
+                fill=LIGHT_GRAY
+            )
+
+            # ====== STEP 7: VIEWS & DURATION ======
+            views = format_views(getattr(song, "view_count", 0))
+            duration = safe_text(getattr(song, "duration", "0:00"))
+            
+            # Duration badge (like YouTube Music)
+            badge_text = f"▶ {views} views"
+            
+            # Views
+            views_y = artist_y + 45
+            draw.text(
+                (title_x, views_y),
+                badge_text,
+                font=self.font_views,
+                fill=GRAY
+            )
+
+            # ====== STEP 8: DURATION BADGE (Top Right) ======
+            # Like YouTube Music duration badge
+            badge_w = 100
+            badge_h = 40
+            badge_x = W - badge_w - 20
+            badge_y = 20
+            
+            # Background for duration badge
+            draw.rectangle(
+                [badge_x, badge_y, badge_x + badge_w, badge_y + badge_h],
+                fill=(0, 0, 0, 200)
+            )
+            
+            # Duration text in badge
+            draw.text(
+                (badge_x + 15, badge_y + 8),
+                duration,
+                font=self.font_sub,
+                fill=WHITE
+            )
+
+            # ====== STEP 9: BOTTOM RIGHT WATERMARK ======
+            # Small bot name
+            draw.text(
+                (W - 200, H - 40),
+                "YouTube Music",
+                font=self.font_sub,
+                fill=(80, 80, 80)
+            )
+
+            # Save
+            bg.save(output)
+            try:
+                os.remove(temp)
+            except:
+                pass
+
+            return output
+
+        except Exception as e:
+            print(f"❌ Render error: {e}")
+            return self._render_fallback(temp, output, song)
+
+    # ========================================
+    # FALLBACK RENDER
+    # ========================================
+
+    def _render_fallback(self, temp, output, song):
+        """Simple fallback thumbnail"""
+        try:
+            img = Image.open(temp).convert("RGB").resize((W, H))
+            
+            # Dark overlay
+            overlay = Image.new("RGBA", (W, H), (0, 0, 0, 150))
+            img = img.convert("RGBA")
+            img = Image.alpha_composite(img, overlay)
+            
+            draw = ImageDraw.Draw(img)
+            
+            # Title
+            title = safe_text(getattr(song, "title", "Unknown"))[:60]
+            try:
+                font1 = ImageFont.truetype("arial.ttf", 60)
+                font2 = ImageFont.truetype("arial.ttf", 30)
+            except:
+                font1 = ImageFont.load_default()
+                font2 = ImageFont.load_default()
+            
+            # Title with outline
+            for dx, dy in [(-2, -2), (-2, 2), (2, -2), (2, 2)]:
+                draw.text((60+dx, 500+dy), title, font=font1, fill=(0, 0, 0))
+            draw.text((60, 500), title, font=font1, fill=WHITE)
+            
+            # Artist
+            artist = safe_text(getattr(song, "channel_name", "Unknown"))[:30]
+            draw.text((60, 580), f"🎵 {artist}", font=font2, fill=LIGHT_GRAY)
+            
+            img.save(output)
+            return output
+            
+        except Exception as e:
+            print(f"❌ Fallback error: {e}")
+            return None
+
+
+# ========================================
+# CONVENIENCE FUNCTIONS
+# ========================================
+
+async def generate_thumbnail(song) -> str:
+    """Generate YouTube Music-style thumbnail"""
+    thumb = Thumbnail()
+    await thumb.start()
+    result = await thumb.generate(song)
+    await thumb.close()
+    return result
+
+
+# ========================================
+# TEST CODE
+# ========================================
+
+if __name__ == "__main__":
+    async def test():
+        # Test song
+        song = Track(
+            id="dQw4w9WgXcQ",
+            title="Never Gonna Give You Up",
+            thumbnail="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+            channel_name="Rick Astley",
+            view_count="1500000000",
+            duration="3:33"
+        )
+        
+        result = await generate_thumbnail(song)
+        if result:
+            print(f"✅ Thumbnail saved: {result}")
+        else:
+            print("❌ Failed")
+    
+    asyncio.run(test())

@@ -43,8 +43,8 @@ class Config:
         self.SESSION3: str = getenv("STRING_SESSION3", "")
 
         # Support Links
-        self.SUPPORT_CHANNEL: str = getenv("SUPPORT_CHANNEL", "https://t.me/elevenytsmusic")
-        self.SUPPORT_CHAT: str = getenv("SUPPORT_CHAT", "https://t.me/elevenytschats")
+        self.SUPPORT_CHANNEL: str = getenv("SUPPORT_CHANNEL", "https://t.me/+_FZh26lYZ0MzOGJl")
+        self.SUPPORT_CHAT: str = getenv("SUPPORT_CHAT", "https://t.me/DDOS_SELLER_07")
 
         # Excluded Chats
         self.EXCLUDED_CHATS: List[int] = self._parse_excluded_chats()
@@ -68,13 +68,13 @@ class Config:
         self.COOKIES_URL: List[str] = self._parse_cookies()
 
         # Images
-        self.DEFAULT_THUMB: str = getenv("DEFAULT_THUMB", "https://files.catbox.moe/d9unds.png")
-        self.PING_IMG: str = getenv("PING_IMG", "https://files.catbox.moe/d9unds.png")
-        self.START_IMG: str = getenv("START_IMG", "https://files.catbox.moe/d9unds.png")
-        self.RADIO_IMG: str = getenv("RADIO_IMG", "https://files.catbox.moe/d9unds.png")
+        self.DEFAULT_THUMB: str = getenv("DEFAULT_THUMB", "https://iili.io/CAWTGyJ.jpg")
+        self.PING_IMG: str = getenv("PING_IMG", "https://iili.io/CAWTGyJ.jpg")
+        self.START_IMG: str = getenv("START_IMG", "https://iili.io/CAWTGyJ.jpg")
+        self.RADIO_IMG: str = getenv("RADIO_IMG", "https://iili.io/CAWTGyJ.jpg")
         
         # Sticker ID for welcome message
-        self.STICKER_ID: str = getenv("STICKER_ID", "CAACAgUAAxkBAAERZd9qMHDSNUAH_8ZAnU4aT97Aw5THZwACdh8AApKxgFWOSimDJoOjCjwE")
+        self.STICKER_ID = getenv("STICKER_ID", "CAACAgUAAxkBAAEReI9qQsqHcWPzywUr07lp4j--rNBWpAACYi8AArGayFXpXKQKZoFCajwE")
 
         # Moderation
         self.EXCLUDED_USERNAMES: List[str] = getenv("EXCLUDED_USERNAMES", "").split()
