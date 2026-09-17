@@ -1,385 +1,64 @@
-<div align="center"> 
-
-<img src="https://files.catbox.moe/zlmv6v.png" width="400">
-
-# 🎵 Elevenyts
-
-### Advanced Telegram Voice Chat Music Bot
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=WELCOME+TO+Elevenyts+REPOSITORY;ADVANCED+TELEGRAM+MUSIC+BOT;HIGH+QUALITY+VOICE+CHAT+STREAMING;MULTI+LANGUAGE+SUPPORT;POWERED+BY+ARTISTBOTS)](https://github.com)
-
-<br>
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-Channel-blue?style=for-the-badge&logo=telegram)](https://t.me/Artistbots)
-[![Support Group](https://img.shields.io/badge/Telegram-Support-blue?style=for-the-badge&logo=telegram)](https://t.me/elevenytsmusic)
-
-<br>
-
-![Python](https://img.shields.io/badge/Python-3.10+-blue)
-![Pyrogram](https://img.shields.io/badge/Pyrogram-Latest-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-success)
-![License](https://img.shields.io/badge/License-MIT-orange)
-
-### 🎧 A Powerful Telegram Music Streaming Bot
-
-</div>
-
----
-
-<div align="center">
-
-# 🚀 𝗗𝗘𝗣𝗟𝗢𝗬 𝗙𝗥𝗘𝗘 𝗢𝗡 𝗥𝗘𝗡𝗗𝗘𝗥 🚀
-
-### ⚠️ Fork Repository Before Deployment
-
-</div>
-
----
-
-# 🌟 About Elevenyts
-
-Elevenyts is an advanced Telegram Voice Chat Music Bot built with **Pyrogram**, **PyTgCalls**, and **MongoDB**.
-
-It allows users to stream high-quality music directly inside Telegram Voice Chats with premium playback performance, playlist management, queue system, admin controls, broadcasting features, statistics tracking, and multi-language support.
-
-Designed for speed, stability, scalability and modern Telegram communities.
-
----
-
-# ✨ Main Features
-
-## 🎵 Music Streaming
-
-✔ High Quality Audio Streaming
-
-✔ YouTube Search & Play
-
-✔ Direct URL Playback
-
-✔ Voice Chat Streaming
-
-✔ Playlist Support
-
-✔ Auto Queue Management
-
-✔ Continuous Playback
-
-✔ Fast Audio Processing
-
-✔ Crystal Clear Sound Quality
-
----
-
-## 🎛 Admin Controls
-
-✔ Pause Music
-
-✔ Resume Music
-
-✔ Skip Song
-
-✔ Stop Playback
-
-✔ Force Play
-
-✔ Mute Assistant
-
-✔ Unmute Assistant
-
-✔ Volume Control
-
-✔ Queue Cleanup
-
----
-
-## 👥 User Management
-
-✔ Authorized Users
-
-✔ Sudo Users
-
-✔ Global Ban System
-
-✔ User Statistics
-
-✔ Premium Features Ready
-
-✔ Owner Controls
-
----
-
-## 🤖 Bot Management
-
-✔ Restart Command
-
-✔ Broadcast System
-
-✔ Maintenance Mode
-
-✔ Logs Monitoring
-
-✔ Error Reporting
-
-✔ Auto Restart Support
-
-✔ Database Integration
-
----
-
-# 📊 Performance
-
-- Optimized Streaming Engine
-- Fast Queue Processing
-- Low Memory Usage
-- Stable Voice Chat Playback
-- High Uptime Support
-- Efficient Database Queries
-
----
-
-# 🔑 Required Environment Variables
-
-Create `.env` file and fill all values:
-
-```env
-API_ID=
-API_HASH=
-BOT_TOKEN=
-STRING_SESSION=
-MONGO_DB_URI=
-LOGGER_ID=
-OWNER_ID=
-ARTISTBOTS_API_URL= 
-ARTISTBOTS_KEY=
-SUPPORT_CHAT= (Optional)
-SUPPORT_CHANNEL= (Optional)
-DEFAULT_THUMB= (Optional)
-PING_IMG= (Optional)
-START_IMG= (Optional)
+# ArtistMusic
+
+A small Telegram voice-chat music bot. It's a stripped-down version of the
+usual "userbot music bot" pattern: one bot account for commands, one
+assistant (userbot) account that actually joins the voice chat, and
+PyTgCalls in between.
+
+```
+ArtistMusic-main/
+├── ArtistMusic/
+│   ├── __init__.py
+│   ├── __main__.py     # entry point — run with: python -m ArtistMusic
+│   ├── command/
+│   │   ├── __init__.py
+│   │   └── commands.py   # play, vplay, playforce, vplayforce, skip, stop,
+│   │                      # end, seek, seekback, resume, pause, loop,
+│   │                      # restart, ping, broadcast
+│   └── engine/
+│       ├── __init__.py
+│       ├── data.py        # MongoDB — remembers served chats
+│       ├── bot.py         # bot client, userbot client, PyTgCalls, inline buttons
+│       └── artist.py      # YouTube search/download, broadcast
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── config.py
+├── requirements.txt
+└── sample.env
 ```
 
----
-
-# 📝 Variables Explanation
-
-| Variable | Description |
-|-----------|-------------|
-| API_ID | Telegram API ID |
-| API_HASH | Telegram API Hash |
-| BOT_TOKEN | BotFather Token |
-| STRING_SESSION | Assistant Session |
-| MONGO_DB_URI | MongoDB Database URL |
-| LOGGER_ID | Logs Group ID |
-| OWNER_ID | Owner Telegram ID |
-| SUPPORT_CHAT | Support Group Username |
-| SUPPORT_CHANNEL | Updates Channel Username |
-| ARTISTBOTS_API_URL |  Artistbots on Telegram |
-| ARTISTBOTS_KEY | t.me/artistapibot |
-
----
-
-# 🚀 Deploy on Render
-
-## Step 1
-
-Fork this Repository
-
-## Step 2
-
-Create Render Account
-
-## Step 3
-
-Connect GitHub
-
-## Step 4
-
-Create New Web Service
-
-## Step 5
-
-Select Repository
-
-### Build Command
-
-```bash
-pip install -U -r requirements.txt
-```
-
-### Start Command
-
-```bash
-bash start
-```
-
-## Step 6
-
-Add Environment Variables
-
-## Step 7
-
-Deploy Service
-
----
-
-# 🚀 Deploy on Railway
-
-1. Fork Repository
-2. Create Railway Project
-3. Connect GitHub Repository
-4. Add Environment Variables
-5. Deploy Project
-
----
-
-# 🖥 Deploy on VPS
-
-## Update System
-
-```bash
-apt update && apt upgrade -y
-```
-
-## Install Dependencies
-
-```bash
-apt install python3 python3-pip ffmpeg git -y
-```
-
-## Clone Repository
-
-```bash
-git clone https://github.com/elevenyts/Elevenyts
-```
-
-## Open Project
-
-```bash
-cd Elevenyts
-```
-
-## Install Requirements
-
-```bash
-pip3 install -U -r requirements.txt
-```
-
-## Configure Variables
-
-```bash
-nano .env
-```
-
-## Run Bot
-
-```bash
-bash start
-```
-
-or
-
-```bash
-python -m Elevenyts
-```
-
----
-
-# 🎵 Commands
-
-## Music Commands
-
-```text
-/play
-/vplay
-/cplay
-/pause
-/resume
-/skip
-/end
-/queue
-/song
-/lyrics
-```
-
-## Admin Commands
-
-```text
-/restart
-/broadcast
-/gban
-/ungban
-/maintenance
-/stats
-```
-
-## Sudo Commands
-
-```text
-/addsudo
-/delsudo
-/sudolist
-/logs
-```
-
----
-
-# 📞 Support & Contact
-
-<div align="center">
-
-## IF YOU FACE ANY ERROR
-
-### SEND SCREENSHOT TO SUPPORT
-
-[![ARTIST](https://files.catbox.moe/kcnahh.png)](https://t.me/Artistbots)
-</p>
-
----
-
-### 📢 Telegram Channel 💬 Support Group
-
-- **Telegram Channel**: [Artist bots](https://t.me/Artistbots)
-- **Support Group**: [Elevenyts Music](https://t.me/elevenytsmusic)
----
-
-# 🔒 Security Notes
-
-❌ Never Share BOT_TOKEN
-
-❌ Never Share STRING_SESSION
-
-❌ Never Share MongoDB URI
-
-✔ Keep Credentials Secure
-
-✔ Use Separate Assistant Account
-
-✔ Keep Logger Group Private
-
----
-
-# ❤️ Credits
-
-- Pyrogram
-- PyTgCalls
-- MongoDB
-- Telegram API
-- ArtistBots
-
----
-
-# 📝 Notes
-
-- Make sure your bot is admin in both the group and logger group
-- The assistant account will auto-join groups when needed for playback
-- Keep your `.env` file secure and never share it publicly
-- Use a second ID for the assistant ID 
----
-
-### Made with ❤️ by Artist
-
-### Powered by ArtistBots
-
-### © 2026 Elevenyts. All Rights Reserved.
-
-</div>
+## Setup
+
+1. `pip install -r requirements.txt` (needs `ffmpeg` installed on the system too).
+2. Copy `sample.env` to `.env` and fill in:
+   - `API_ID` / `API_HASH` — from https://my.telegram.org
+   - `BOT_TOKEN` — from @BotFather
+   - `SESSION_STRING` — a Pyrogram string session for the assistant account
+     that will join voice chats (generate one with a small script using
+     `pyrogram.Client(...).export_session_string()`)
+   - `MONGO_URL` — a MongoDB connection string
+   - `OWNER_ID` — your numeric Telegram user id (needed for `/broadcast`)
+3. Add both the bot and the assistant account to your group, and give the
+   assistant permission to start/join the voice chat.
+4. From the repo root: `python -m ArtistMusic`
+
+## Commands
+
+`/play`, `/vplay`, `/playforce`, `/vplayforce`, `/skip`, `/pause`,
+`/resume`, `/seek <secs>`, `/seekback <secs>`, `/restart`,
+`/loop <0-10>`, `/stop` / `/end`, `/ping`, `/broadcast` (owner only).
+
+## Notes
+
+- Queue/loop state is kept in memory per-process — simple on purpose, but it
+  resets on restart and won't work across multiple bot instances.
+- `py-tgcalls` changes its API a bit between versions. This targets the
+  2.x line (`MediaStream`, `AudioQuality`, `calls.play` /
+  `calls.change_stream` / `calls.leave_call`). If a call in
+  `ArtistMusic/command/commands.py` or `ArtistMusic/engine/bot.py` doesn't
+  match what you have installed, check that package's changelog for the
+  equivalent call.
+- All bot-facing text is written directly inline in
+  `ArtistMusic/command/commands.py` — edit the strings there if you want to
+  change the wording.
