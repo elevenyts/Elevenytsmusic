@@ -80,23 +80,39 @@ async def main():
 
         # Step 3: Connect to MongoDB database
         await db.connect()
-        
-        # Step 4: Start the main bot client
-        await app.boot()
-        
-        # Step 5: Start assistant/userbot clients (for joining voice chats)
-        await userbot.boot()
-        
-        # Step 6: Initialize voice call handler
-        await tune.boot()
 
-        # Step 7: Load all plugin modules (commands like /play, /pause, etc.)
+        # Step 4: Register ALL Telegram handlers BEFORE starting the bot client.
+        #
+        # On Render/Kurigram, starting the client first and importing command
+        # modules afterwards can leave the running dispatcher with no usable
+        # command handlers. The service then looks healthy, but /start, /play,
+        # callbacks, etc. appear completely silent.
+        loaded_plugins = 0
+        failed_plugins = []
         for module in all_modules:
             try:
                 importlib.import_module(f"Elevenyts.plugins.{module}")
+                loaded_plugins += 1
             except Exception as e:
+                failed_plugins.append(module)
                 logger.error(f"Failed to load plugin {module}: {e}", exc_info=True)
-        logger.info(f"🔌 Loaded {len(all_modules)} plugin modules.")
+
+        logger.info(
+            f"🔌 Registered {loaded_plugins}/{len(all_modules)} plugin modules before bot startup."
+        )
+        if failed_plugins:
+            logger.error(
+                "❌ Plugin registration failures: " + ", ".join(failed_plugins)
+            )
+
+        # Step 5: Start the main bot only after handlers are registered.
+        await app.boot()
+
+        # Step 6: Start assistant/userbot clients (for joining voice chats).
+        await userbot.boot()
+
+        # Step 7: Initialize voice call handler.
+        await tune.boot()
 
         # Step 8: Load sudo users and blacklisted users from database
         sudoers = await db.get_sudoers()
