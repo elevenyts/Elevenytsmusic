@@ -113,6 +113,7 @@ def controls_html(chat_id: int, media, *, timer: Optional[str] = None,
         f'</tg-button-row>'
         f'<tg-button-row align="center">'
         f'<tg-button type="callback_data" style="{queue_style}" data="controls loop {chat_id}">Loop</tg-button>'
+        f'<tg-button type="callback_data" style="success" data="controls autoplay {chat_id}">Auto</tg-button>'
         f'<tg-button type="callback_data" style="primary" data="controls close {chat_id}">Close</tg-button>'
         f'<tg-button type="callback_data" style="danger" data="controls stop {chat_id}">Stop</tg-button>'
         f'</tg-button-row>'
